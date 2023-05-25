@@ -10,16 +10,3 @@ public:
 	node* prev;
 };
 
-class DoubleLinkedList {
-private:
-	node* START;
-public:
-
-	DoubleLinkedList();
-	void addode();
-	bool search(int rollNo, node** previous, node** current);
-	bool deleteNode(int rollNo);
-	bool listEmpty();
-	bool ascending();
-	void descending();
-};
