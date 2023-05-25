@@ -30,7 +30,7 @@ DoubleLinkedList::DoubleLinkedList() {
 	START = NULL;
 }
 
-void DoubleLinkedList::addNode(){
+void DoubleLinkedList::addNode() {
 	int nim;
 	string nm;
 	cout << "\nEnter the roll number of the student: ";
@@ -55,16 +55,27 @@ void DoubleLinkedList::addNode(){
 		return;
 	}
 	node* current = START;
-	while (current->next != NULL && nim > current->next->noMhs) { 
+	while (current->next != NULL && nim > current->next->noMhs) 
 		current = current->next;
-		if (current->next != NULL && nim == current->next->noMhs) { 
-			cout << "\nDuplicate roll number not allowed: " << endl; 
+		if (current->next != NULL && nim == current->next->noMhs) {
+			cout << "\nDuplicate roll number not allowed: " << endl;
 			return;
 		}
-		newNode->next = current->next; 
-		newNode->prev = current; 
-		if (current->next != NULL) 
-			current->next->prev = newNode; 
+		newNode->next = current->next;
+		newNode->prev = current;
+		if (current->next != NULL)
+			current->next->prev = newNode;
 		current->next = newNode;
-	}
 }
+
+
+bool DoubleLinkedList::search(int rollno, node * *previous, node * *current) {
+	*previous = *current = START;
+	while (*current != NULL && rollno != (*current)->noMhs) {
+		*previous = *current;
+		*current = (*current)->next;
+	}
+	return(*current != NULL);
+}
+
+
