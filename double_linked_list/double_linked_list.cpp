@@ -16,10 +16,17 @@ private:
 public:
 
 	DoubleLinkedList();
-	void addode();
+	void addNode();
 	bool search(int rollNo, node** previous, node** current);
 	bool deleteNode(int rollNo);
 	bool listEmpty();
 	bool ascending();
 	void descending();
+	void hapus();
+	void searchData();
 };
+
+DoubleLinkedList::DoubleLinkedList() {
+	START = NULL;
+}
+
